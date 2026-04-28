@@ -1,0 +1,25 @@
+// Quiz Battle Жүйесі — DBML Схемасы
+// dbdiagram.io сайтында визуализациялауға болады
+
+Table Users {
+  id   int [pk, increment, note: "Бірегей идентификатор"]
+  name varchar [not null, note: "Ойыншының аты"]
+}
+
+Table Questions {
+  id             int     [pk, increment, note: "Сұрақ идентификаторы"]
+  question_text  text    [not null, note: "Сұрақ мәтіні"]
+  option_a       varchar [not null, note: "А жауап нұсқасы"]
+  option_b       varchar [not null, note: "Б жауап нұсқасы"]
+  option_c       varchar [not null, note: "В жауап нұсқасы"]
+  option_d       varchar [not null, note: "Г жауап нұсқасы"]
+  correct_answer varchar [not null, note: "Дұрыс жауап (A/B/C/D)"]
+}
+
+Table Games {
+  id         int [pk, increment, note: "Ойын идентификаторы"]
+  player1_id int [not null, ref: > Users.id, note: "1-ші ойыншы (СК)"]
+  player2_id int [not null, ref: > Users.id, note: "2-ші ойыншы (СК)"]
+  winner_id  int [ref: > Users.id, note: "Жеңімпаз (СК, нөл болуы мүмкін)"]
+}
+2
