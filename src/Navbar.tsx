@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { User, getUsers, getUnreadNotificationCount, getUnreadMessageCount, Notification, ChatMessage, getNotifications, markNotificationAsRead, getMessages, sendMessage, markMessagesAsRead } from './types';
-import { Key, Settings, LogOut, Bell, MessageSquare, X, Send, Check, ArrowLeft } from 'lucide-react';
+import { Key, Settings, LogOut, Bell, MessageSquare, X, Send, ArrowLeft } from 'lucide-react';
 
 interface Props {
   currentUser: User | null;
